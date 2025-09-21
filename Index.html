@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var ua = navigator.userAgent.toLowerCase();
+        if (/mobile|android|touch|webos|hpwos/i.test(ua)) {
+            window.location.href = "Mobile.html";
+        } else {
+            window.location.href = "Desktop.html";
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
