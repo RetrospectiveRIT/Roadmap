@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirect</title>
+</head>
+<body>
+  <a id="redirectLink" href="Page/Desktop.html">Redirecting...</a>
+  
+  <script>
+    var ua = navigator.userAgent.toLowerCase();
+    var link = document.getElementById("redirectLink");
+    if (/mobile|android|touch|webos|hpwos/i.test(ua)) {
+      link.href = "Page/Mobile.html";
+    } else {
+      link.href = "Page/Desktop.html";
+    }
+    link.click();
+  </script>
+</body>
+</html>
