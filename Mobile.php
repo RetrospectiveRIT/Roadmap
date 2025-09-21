@@ -1,0 +1,175 @@
+<?php
+$userAgent = $_SERVER['HTTP_USER_AGENT'];
+if (!preg_match('/mobile|android|touch|webos|hpwos/i', $userAgent)) {
+    header('Location: Desktop.php');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoadMap</title>
+    <link rel="stylesheet" href="CSS/Style.css">
+    <style></style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body  >
+    
+    <div 
+    id="LandscapeBG"
+    class="relative flex justify-center items-center w-full min-h-screen pixelated" 
+    style="background-image: url('img/mBG_1.png'); background-size:100%, auto;  overflow:hidden;"
+    >
+        <img src="img/Dash Line Path.png" alt="Dash Line Path" class="w-full absolute top-[45%] max-w-screen z-1 pixelated" draggable="false" />
+
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[48.5%] left-[1%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Basic Programing.png" alt="Basic Programing" class="absolute top-[39%] left-[2.5%] w-[17.875%] z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/BP Overlay.png'" onmouseout="this.src='img/Basic Programing.png'" draggable="false" onclick="pullPanels('Basic Programing')"/>
+        
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[51.5%] left-[16%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Game Development.png" alt="Game Developement" class="absolute top-[54.5%] left-[17.5%] w-[17.875%]  z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/GP Overlay.png'" onmouseout="this.src='img/Game Development.png'" draggable="false" onclick="pullPanels('Game Development')"/>
+    
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[43%] left-[33%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Basic Concept.png" alt="Basic Concept" class="absolute top-[33.5%] left-[34.5%] w-[17.875%] w-48 z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/BC Overlay.png'" onmouseout="this.src='img/Basic Concept.png'" draggable="false" onclick="pullPanels('Basic Concept')"/>
+    
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[49%] left-[59.5%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Game Mechanic.png" alt="Game Mechanic" class="absolute top-[52%] left-[41.75%] w-[17.875%] w-48 z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/GM Overlay.png'" onmouseout="this.src='img/Game Mechanic.png'" draggable="false" onclick="pullPanels('Game Mechanic')"/>
+
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[53%] left-[82%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Additional Mechanic.png" alt="Additional Mechanic" class="absolute top-[56.5%] left-[64%] w-[17.875%]  z-3 cursor-pointer pixelated" 
+        onmouseover="this.src='img/AM Overlay.png'" onmouseout="this.src='img/Additional Mechanic.png'" draggable="false" onclick="pullPanels('Additional Mechanic')"/>
+        
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[48%] left-[97%] w-[1.75%] z-2 pixelated" draggable="false" />
+        <img src="img/Final.png" alt="Final" class="absolute top-[38.5%] left-[79.5%] w-[17.875%]  z-2 cursor-pointer pixelated" onmouseover="this.src='img/F Overlay.png'" onmouseout="this.src='img/Final.png'" draggable="false" 
+        onclick="pullPanels('Final')"/>
+    
+        <img src="img/Title Panel.png" alt="Title Panel" id="TitlePanel" class="absolute top-[5%] w-[55%] h-[24%] z-4 pixelated" draggable="false"/>
+        <img src="img/BG_Dark.png" alt="BG_Dark" id="bgDark" class="absolute w-[100%] h-[100%] z-4 opacity-50 pixelated" draggable="false" onclick="hidePanels()" hidden/>
+        <div
+            id="scrollPanel"
+            class="absolute left-[68%] w-[34.375%] h-[100%] z-5 transition-transform duration-500 translate-x-full"
+            style="background-image: url('img/Scroll Side Panel.png'); background-size: contain; background-repeat: no-repeat;"
+            hidden
+        >
+            <div class="flex flex-col h-[100%] items-center h-full pt-[15%] pl-[12.5%] pr-[17%]">
+                <h1 id="panelTitle" class="font-pixellari textColorScroll title">Your text goes here.</h1>
+                <p id="Desc" class="font-pixellari textColorScroll desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sapiente et molestias. Expedita, deleniti cum, nulla architecto blanditiis optio maxime accusantium quo aliquid natus unde. Tempore ipsum nulla iusto tempora?</p>
+            </div>
+        </div>
+    </div>
+    <div 
+    id="PortraitBG"
+    class="relative flex justify-center items-center w-full min-h-screen pixelated" 
+    style="background-image: url('img/mBG_2.png'); background-size: auto 100%; overflow:hidden; display:none;"
+    >
+        <img src="img/Dash Line Path.png" alt="Dash Line Path" class="w-full absolute top-[45%] max-w-screen z-1 pixelated" draggable="false" />
+
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[48.5%] left-[1%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Basic Programing.png" alt="Basic Programing" class="absolute top-[39%] left-[2.5%] w-[17.875%] z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/BP Overlay.png'" onmouseout="this.src='img/Basic Programing.png'" draggable="false" onclick="pullPanels('Basic Programing')"/>
+        
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[51.5%] left-[16%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Game Development.png" alt="Game Developement" class="absolute top-[54.5%] left-[17.5%] w-[17.875%]  z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/GP Overlay.png'" onmouseout="this.src='img/Game Development.png'" draggable="false" onclick="pullPanels('Game Development')"/>
+    
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[43%] left-[33%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Basic Concept.png" alt="Basic Concept" class="absolute top-[33.5%] left-[34.5%] w-[17.875%] w-48 z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/BC Overlay.png'" onmouseout="this.src='img/Basic Concept.png'" draggable="false" onclick="pullPanels('Basic Concept')"/>
+    
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[49%] left-[59.5%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Game Mechanic.png" alt="Game Mechanic" class="absolute top-[52%] left-[41.75%] w-[17.875%] w-48 z-2 cursor-pointer pixelated" 
+        onmouseover="this.src='img/GM Overlay.png'" onmouseout="this.src='img/Game Mechanic.png'" draggable="false" onclick="pullPanels('Game Mechanic')"/>
+
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[53%] left-[82%] w-[1.75%] z-3 pixelated" draggable="false" />
+        <img src="img/Additional Mechanic.png" alt="Additional Mechanic" class="absolute top-[56.5%] left-[64%] w-[17.875%]  z-3 cursor-pointer pixelated" 
+        onmouseover="this.src='img/AM Overlay.png'" onmouseout="this.src='img/Additional Mechanic.png'" draggable="false" onclick="pullPanels('Additional Mechanic')"/>
+        
+        <img src="img/Spot.png" alt="Spot"            class="absolute top-[48%] left-[97%] w-[1.75%] z-2 pixelated" draggable="false" />
+        <img src="img/Final.png" alt="Final" class="absolute top-[38.5%] left-[79.5%] w-[17.875%]  z-2 cursor-pointer pixelated" onmouseover="this.src='img/F Overlay.png'" onmouseout="this.src='img/Final.png'" draggable="false" 
+        onclick="pullPanels('Final')"/>
+    
+        <img src="img/Title Panel.png" alt="Title Panel" id="TitlePanel" class="absolute top-[5%] w-[55%] h-[24%] z-4 pixelated" draggable="false"/>
+        <img src="img/BG_Dark.png" alt="BG_Dark" id="bgDark" class="absolute w-[100%] h-[100%] z-4 opacity-50 pixelated" draggable="false" onclick="hidePanels()" hidden/>
+        <div
+            id="scrollPanel"
+            class="absolute left-[68%] w-[34.375%] h-[100%] z-5 transition-transform duration-500 translate-x-full"
+            style="background-image: url('img/Scroll Side Panel.png'); background-size: contain; background-repeat: no-repeat;"
+            hidden
+        >
+            <div class="flex flex-col h-[100%] items-center h-full pt-[15%] pl-[12.5%] pr-[17%]">
+                <h1 id="panelTitle" class="font-pixellari textColorScroll title">Your text goes here.</h1>
+                <p id="Desc" class="font-pixellari textColorScroll desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sapiente et molestias. Expedita, deleniti cum, nulla architecto blanditiis optio maxime accusantium quo aliquid natus unde. Tempore ipsum nulla iusto tempora?</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Ensure the panel starts offscreen and animates to center */
+        #scrollPanel.translate-x-full {
+            transform: translateX(100%);
+        }
+        #scrollPanel.translate-x-0 {
+            transform: translateX(0);
+        }
+    </style>
+    <script>
+        function hidePanels() {
+            const bgDark = document.getElementById('bgDark');
+            const scrollPanel = document.getElementById('scrollPanel');
+            // Animate to offscreen
+            scrollPanel.classList.remove('translate-x-0');
+            scrollPanel.classList.add('translate-x-full');
+            // Hide after animation
+            setTimeout(() => {
+                bgDark.style.display = 'none';
+                scrollPanel.style.display = 'none';
+            }, 500); // match duration-500
+        }
+
+        function pullPanels(title) {
+            const bgDark = document.getElementById('bgDark');
+            const scrollPanel = document.getElementById('scrollPanel');
+            const panelTitle = document.getElementById('panelTitle');
+            
+            bgDark.style.display = 'block';
+            scrollPanel.style.display = 'block';
+
+            panelTitle.textContent = title || "Default Title";
+
+            // Start offscreen
+            scrollPanel.classList.remove('translate-x-0');
+            scrollPanel.classList.add('translate-x-full');
+            // Animate to center
+            setTimeout(() => {
+                scrollPanel.classList.remove('translate-x-full');
+                scrollPanel.classList.add('translate-x-0');
+            }, 5);
+        }
+
+        // Orientation-based background logic
+        function setBgByOrientation() {
+            const landscapeDiv = document.getElementById('LandscapeBG');
+            const portraitDiv = document.getElementById('PortraitBG');
+            if (window.matchMedia("(orientation: portrait)").matches) {
+                landscapeDiv.style.display = "none";
+                portraitDiv.style.display = "block";
+            } else {
+                landscapeDiv.style.display = "block";
+                portraitDiv.style.display = "none";
+            }
+        }
+        window.addEventListener('resize', setBgByOrientation);
+        window.addEventListener('orientationchange', setBgByOrientation);
+        document.addEventListener('DOMContentLoaded', setBgByOrientation);
+    </script>
+
+</body>
+
+</html>
