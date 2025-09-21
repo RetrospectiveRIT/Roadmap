@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Pixellari';
+    src: url('../font/Pixellari.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-pixellari {
+    font-family: 'Pixellari', monospace;
+}
+.textColorScroll {
+    color: black;
+}
+
+.title {
+    font-size: 2.5em; /* Adjust the size as needed */
+    font-weight: bold;
+    text-shadow: -0.075em 0.075em #988B3A;;
+}
+.desc {
+    font-size: 1em; /* Adjust the size as needed */
+    text-shadow: -0.075em 0.075em #988B3A;;
+}
+
+.pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
