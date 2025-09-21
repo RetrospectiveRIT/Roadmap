@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        var base = window.location.origin + "/Roadmap/";
-        if (/mobile|android|touch|webos|hpwos/i.test(ua)) {
-            window.location.href = base + "Page/Mobile.html";
-        } else {
-            window.location.href = base + "Page/Desktop.html";
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirect</title>
 </head>
-
 <body>
-    you are not suppose to be here
+  <a id="redirectLink" href="Page/Desktop.html">Redirecting...</a>
+  
+  <script>
+    var ua = navigator.userAgent.toLowerCase();
+    var link = document.getElementById("redirectLink");
+    if (/mobile|android|touch|webos|hpwos/i.test(ua)) {
+      link.href = "Page/Mobile.html";
+    } else {
+      link.href = "Page/Desktop.html";
+    }
+    link.click();
+  </script>
 </body>
-
 </html>
